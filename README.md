@@ -5,7 +5,7 @@ Code for wedding directory.
 
 We need [ImageMagick](https://imagemagick.org/) and [Potrace](http://potrace.sourceforge.net/).
 
-Installation directions for ImageMagick can be found on their [download site](https://imagemagick.org/script/download.php).  Alternatively, you can download the MacOS version with with [this link](https://imagemagick.org/download/binaries/ImageMagick-x86_64-apple-darwin19.0.0.tar.gz).  Extract the contents and set the `MAGICK_HOME` environment variable to the extracted path.  Similary add the `bin` subdirectory to `PATH` and the `lib` subdirectory to `DYLD_LIBRARY_PATH`.
+Installation directions for ImageMagick can be found on their [download site](https://imagemagick.org/script/download.php).  Also, you can download the MacOS version with with [this link](https://imagemagick.org/download/binaries/ImageMagick-x86_64-apple-darwin19.0.0.tar.gz).  Extract the contents and set the `MAGICK_HOME` environment variable to the extracted path.  Similary add the `bin` subdirectory to `PATH` and the `lib` subdirectory to `DYLD_LIBRARY_PATH`.
 
 ```
 export MAGICK_HOME="$HOME/ImageMagick-7.0.9"
@@ -37,6 +37,10 @@ conda activate wedding
 conda install -n wedding -c menpo opencv
 ```
 
+## Download the Origami Images
+
+We use [this site](http://origami-fantasia.com/e/gallery.html) to find apt origami fold patterns.
+
 ## Creating SVG from JPG
 
 To do this, we
@@ -45,5 +49,7 @@ To do this, we
 convert image.png image.ppm
 potrace -s image.ppm -o image.svg
 ```
+
+This is the command line vusage of creating the vector graphics from the jpg's.  We add an additional step by converting the downloaded origami jpg's.
 
 
