@@ -16,11 +16,14 @@ def convert_single_file(path_file, path_temp):
   name_invt = name_root + '.png'
   img = cv2.imread(path_file)
   img_resize = cv2.resize(img, (1024,1024), interpolation=cv2.INTER_CUBIC)
-  img_invert = 255 - img_resize
+  img_invert = 255 * ((255 - img_resize) > 50).astype(np.float32)
+  strct = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5), (2, 2))
+  img_invert = cv2.dilate(img_invert, strct)
+  img_invert = cv2.erode(img_invert, strct)
   if path_temp:
-    cv2.imwrite(join(path_temp, name_invt), img_invert)
+    cv2.imwrite(join(path_temp, name_invt), 255-img_invert.astype(np.uint8))
   else:
-    cv2.imwrite(join(path_src, name_invt), img_invert)
+    cv2.imwrite(join(path_src, name_invt), 255-img_invert.astype(np.uint8))
   
   # Running conversion scripts.
   #name_temp = name_root + '.ppm'
