@@ -5,7 +5,7 @@ Code for wedding directory.
 
 You need [ImageMagick](https://imagemagick.org/) and [Potrace](http://potrace.sourceforge.net/).
 
-Installation directions for ImageMagick can be found on their [download site](https://imagemagick.org/script/download.php).  Alternatively, you can download the MacOS version at [this link](https://imagemagick.org/download/binaries/ImageMagick-x86_64-apple-darwin19.0.0.tar.gz).  Extract the contents and set the `MAGICK_HOME` environment variable congratulations the extracted path.  Similarly, add the `bin` subdirectory to `PATH` and the `lib` subdirectory to `DYLD_LIBRARY_PATH`.
+Installation directions for ImageMagick can be found on their [download site](https://imagemagick.org/script/download.php).  Alternatively, you can download the MacOS version at [this link](https://imagemagick.org/download/binaries/ImageMagick-x86_64-apple-darwin19.0.0.tar.gz).  Extract the contents and set the `MAGICK_HOME` environment variable to the extracted path.  Similarly, add the `bin` subdirectory to `PATH` and the `lib` subdirectory to `DYLD_LIBRARY_PATH`.
 
 ```
 export MAGICK_HOME="$HOME/ImageMagick-7.0.9"
@@ -39,7 +39,7 @@ conda install -n wedding -c menpo opencv
 
 ## Downloading the Origami Images
 
-We use [this site](http://origami-fantasia.com/e/gallery.html) to find apt origami fold patterns.  Origami fold patterns in cross raw look like this:
+We use [this site](http://origami-fantasia.com/e/gallery.html) to find apt origami fold patterns.  Origami fold patterns in the raw look like this:
 
 <img align="center" img src="test_images/wild_goose_cp.jpg" width="256">
 
@@ -58,11 +58,11 @@ This is the command line usage of creating vector graphics from the jpg's.  We a
 python jpg2svg.py --f [path of origami jpg's] --temp [path of tempory directory]
 ```
 
-This will go through all the origami .jpg's, do image interpolation and binary closing for smoothness, and then save them as a .png.  This will give us very clean and crisp finishs, which we can see below:
+This will go through all the origami .jpg's, do image interpolation and binary closing for smoothness, and then save them as a .png.  This will give us very clean and crisp lines, which we can see below:
 
 <img align="center" img src="test_images/wild_goose_cp.png" width="256">
 
-Following this step, we can run the `convert` and `potrace` commands above go get really clean vector graphics.
+Following this step, we can run the `convert` and `potrace` commands above to get really clean vector graphics.
 
 ## Graphics Program
 
@@ -74,7 +74,7 @@ We use these to create the baseline image:
 
 ## Embedding the QR Codes
 
-We generate the QR codes for the thiss with [this website](http://zxing.appspot.com/generator/).  It's simple enough and should work well.
+We generate the QR codes for the sites with [this website](http://zxing.appspot.com/generator/).  It's simple enough and should work well.
 
 Once generated, we will combine the QR code images:
 
@@ -90,4 +90,4 @@ to create our finalized save the dates.
 
 We do this with `add_code.py`.
 
-https://darvstina.com/savethedate-finishline
+
